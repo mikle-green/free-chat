@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <big>Register</big>
+      <form class="form" action="" method="post">
+      {{ form.hidden_tag() }}
+        <p class="form-group">
+          {{ form.username(minlength=3, maxlength=30, placeholder="Username", class="form-control") }}
+          {% for error in form.username.errors %}
+            <span id="error">{{ error }}</span>
+          {% endfor %}
+        </p>
+        <p class="form-group">
+          {{ form.password(minlength=8, maxlength=30, placeholder="Password", class="form-control") }}
+          {% for error in form.password.errors %}
+            <span id="error">{{ error }}</span>
+          {% endfor %}
+        </p>
+        <p class="form-group">
+          {{ form.confirm(minlength=8, maxlength=30, placeholder="Repeat Password", class="form-control") }}
+          {% for error in form.confirm.errors %}
+            <span id="error">{{ error }}</span>
+          {% endfor %}
+        </p>
+        {{ form.register(class="btn btn-primary") }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

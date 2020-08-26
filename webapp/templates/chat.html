@@ -1,0 +1,4 @@
+<div id="msg_count" style="display:none">{{ count }}</div>
+{% for message in messages %}
+  <p><small>{{ message.posted_at }}</small><br><b>{{ message.user.name }}</b>: {{ message.content }}</p>
+{% endfor %}

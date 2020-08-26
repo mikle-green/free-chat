@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+  <script src="/static/chat.js"></script>
+  <div class="d-flex flex-column justify-content-center h-100">
+    <div class="flex-row" data-toggle="tooltip" title="You logged in at {{ current_user.last_login }}">
+      <big>Welcome, {{ current_user.name }}</big>
+    </div>
+    <div id="chat" class="flex-column flex-fill text-light bg-dark">
+      <div id="msg_count" style="display:none">{{ count }}</div>
+      {% for message in messages %}
+          <p><small>{{ message.posted_at }}</small><br><b>{{ message.user.name }}</b>: {{ message.content }}</p>
+      {% endfor %}
+    </div>
+    <form class="form-inline" action="" method="post" id="contact">
+      {{ form.hidden_tag() }}
+      <div class="flex-fill">
+        {{ form.message(minlength=1, placeholder="Enter a message", class="form-control w-100", rows="1") }}
+        {% for error in form.message.errors %}
+          <span id="error">{{ error }}</span>
+        {% endfor %}
+      </div>
+      {{ form.send(class="btn btn-primary") }}
+    </form>
+  </div>
+{% endblock %}

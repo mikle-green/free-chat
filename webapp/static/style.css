@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  height: 100vh;
+}
+
+#chat {
+  overflow-y: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  word-break: break-all;
+}
+
+#error {
+  color: red;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+
+small {
+  font-size: 60%;
+}
